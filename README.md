@@ -1,2 +1,2 @@
 # Aws_with_Python
-How to using AWS functionality through python 
+A brief explanation of, How to use AWS functionality through Python.
