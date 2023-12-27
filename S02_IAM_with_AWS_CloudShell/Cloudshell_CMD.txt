@@ -1,0 +1,77 @@
+Cloud Shell CMD
+===============
+1. aws help
+2. aws version 
+3. aws iam  list-users
+4. aws iam create-user --user-name newuser5
+    {
+        "User": {
+            "Path": "/",
+            "UserName": "newuser5",
+            "UserId": "AIDAVOXXBIVA5KJWNIFLU",
+            "Arn": "arn:aws:iam::375253976385:user/newuser5",
+            "CreateDate": "2023-12-15T14:15:41+00:00"
+        }
+    }
+
+Create login profile through CloudShell
+========================================
+
+aws iam create-login-profile --generate-cli-skeleton > create-login-profile.json
+
+/home/cloudshell-user/create-login-profile.json
+
+[cloudshell-user@ip-10-132-34-228 ~]$ aws iam create-login-profile --cli-input-json file://create-login-profile.json
+{
+    "LoginProfile": {
+        "UserName": "newuser5",
+        "CreateDate": "2023-12-15T14:29:39+00:00",
+        "PasswordResetRequired": false
+    }
+}
+
+CloudShell Attached Policy to User
+===================================
+
+arn:aws:iam::aws:policy/AmazonS3FullAccess
+
+aws iam attach-user-policy --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess --user-name newuser5
+
+arn:aws:iam::aws:policy/AdministratorAccess
+
+aws iam attach-user-policy --policy-arn arn:aws:iam::aws:policy/AdministratorAccess --user-name newuser5
+
+
+CloudShell Create access key
+===================================
+
+aws iam create-access-key --user-name newuser5
+
+[cloudshell-user@ip-10-132-34-228 ~]$ aws iam create-access-key --user-name newuser5
+{
+    "AccessKey": {
+        "UserName": "newuser5",
+        "AccessKeyId": "AKIAVOXXBIVA7K62PP7CMST",
+        "Status": "Active",
+        "SecretAccessKey": "MSTHWj/ZIWQH+fT7Vzd+G6GceDJPW6nz16uoFmPKYJr",
+        "CreateDate": "2023-12-15T14:46:10+00:00"
+    }
+}
+
+CloudShell Create Group
+===================================
+CMD$- aws iam create-group --group-name Admins
+{
+    "Group": {
+        "Path": "/",
+        "GroupName": "Admins",
+        "GroupId": "AGPAVOXXBIVA4RSKKCGKXMST",
+        "Arn": "arn:aws:iam::375253976385:group/Admins",
+        "CreateDate": "2023-12-15T14:55:01+00:00"
+    }
+}
+Add user to group
+=================
+
+aws iam add-user-to-group --user-name newuser5 --group-name Admins
+
