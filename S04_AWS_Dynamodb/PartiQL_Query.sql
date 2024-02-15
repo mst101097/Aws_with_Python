@@ -14,3 +14,7 @@ DELETE
 FROM Article
 WHERE
   id = 5 AND pub_date = '2022-02-12';
+
+--how to access index in DynomoDb
+-- "tableName"."IndexName"
+select * from "Article"."author-index"
