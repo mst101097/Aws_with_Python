@@ -28,4 +28,4 @@ def upload_files(file_name, bucket,object_name= None,args=None):
     s3_resource.meta.client.upload_file(file_name,bucket,object_name,ExtraArgs=args)
     print("{} has been uploaded to {} bucket".format(file_name,BUCKET_NAME))
 
-upload_files("file.pdf",BUCKET_NAME)
+upload_files("myfile.txt",BUCKET_NAME)
