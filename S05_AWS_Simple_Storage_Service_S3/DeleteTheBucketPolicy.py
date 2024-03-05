@@ -8,3 +8,10 @@ response = client.delete_bucket_policy(
     Bucket = "awstutorials"
 )
 print(response)
+
+# delete hosting bucket website
+
+response = client.delete_bucket_website(
+    Bucket = "awstutorials"
+)
+print(response)
