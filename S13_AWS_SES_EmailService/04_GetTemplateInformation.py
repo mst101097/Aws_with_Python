@@ -24,4 +24,4 @@ pprint(response['Template'])
               'SubjectPart': 'Welcome to the AWS Course',
               'TemplateName': 'CustomTemplate',
               'TextPart': 'Thanks for the Joining us!!'}}
-'''
+''' 
